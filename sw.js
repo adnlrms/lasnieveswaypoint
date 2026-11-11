@@ -2,7 +2,7 @@
    The page itself is fetched network-first (so updates arrive immediately) and kept for
    offline use; fonts, icons and the map library (leaflet/) are cached. Data requests to
    Apps Script are never touched here — the board keeps its own copy of the last loaded week. */
-const CACHE = 'lnd-waypoint-v4';
+const CACHE = 'lnd-waypoint-v5';
 const CORE = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
 const EXTRA = ['./leaflet/leaflet.js', './leaflet/leaflet.css'];   // nice to have: a missing file must not stop offline support
 
