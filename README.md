@@ -29,6 +29,7 @@ The frontend is a single web page. The backend is Google Apps Script, with Googl
 
 **The board**
 - **Week, Month, Year** views of every person's status: in office, out of office, on leave, weekend. Tiles or list layout, filter by school.
+- Always opens on **Week view, showing the current week**. A board left open (for example on an office TV) moves to the new day and week on its own after midnight, unless someone is browsing another week.
 - **Schools** view: a map with a pin for every school assignment. Point at a pin to see the School Head (with photo), then the AO, PDO and other staff, with each person's status today.
 - **Insights**: travel days per person, grouped by school or position, for a month, quarter or school year.
 - **Upcoming** district activities and calendar events.
@@ -41,11 +42,13 @@ The frontend is a single web page. The backend is Google Apps Script, with Googl
   - names and schools, even misspelled
   - Chips show how the search was read; tap one to ignore it.
 - Lists show 25 entries per page.
+- **View** button on every log, in a person's whereabouts log, in search results and in *Admin → Log activity*. It opens the full record: person, every date covered and the days left out, TA/memo number, purpose, details, schools visited, attachments, and when it was logged or changed. It also has **Print**, and **Edit** in the admin list.
 - Works on phones, can be installed as an app, and opens offline with the last loaded week.
 
 **Administration**
 - **Log activity:** for one or many personnel at once.
-  - **Skipped dates:** a TA for Nov 11 and 13 leaves out the 12th, and the 12th is excluded from every count, alert and report.
+  - **Pick dates on a calendar:** click each day on the TA or memo, for example Nov 11, 13 and 17. Click a day again to remove it. Use ‹ › to move to another month; picks can span months. Shift-click selects every day from the last day clicked. *Remove weekends* and *Clear dates* are one click.
+  - **Skipped dates:** the days between that are not picked (Nov 12, 14–16 above) are excluded from every count, alert and report. Editing a log shows its days already picked.
   - Scan or upload the TA with a phone camera or PDF; pages can be merged into one PDF.
 - **Personnel:** fields are position, name, employee no., **School ID Number** (6 digits), **school assignment**, **school coordinates**, contact no., photo and notes.
   - Positions offered: PSDS, School Head, AO II, PDO II. Admins can type any other position.
@@ -160,7 +163,7 @@ Files already uploaded stay where they are.
 
 | Task | Where |
 |---|---|
-| Log a TA, monitoring visit, training or leave | **Admin → Log activity**. Pick personnel, type and dates. For a TA that skips days, tap those days under *Days covered by the TA*. |
+| Log a TA, monitoring visit, training or leave | **Admin → Log activity**. Pick personnel and type, then click each date on the calendar. Days not clicked are left out. |
 | Add or edit personnel | **Admin → Personnel**. Enter School ID Number (6 digits) and school coordinates. |
 | Get school coordinates | In Google Maps, right-click the school and click the numbers at the top to copy them, e.g. `8.7353, 125.6012`. |
 | Order schools and people on the board | **Admin → Settings → Board arrangement** |
@@ -168,6 +171,7 @@ Files already uploaded stay where they are.
 | Reports for a month, quarter or year | **Admin → Reports** |
 | Weekly "who is out" email | **Admin → Settings**: add recipients, then *Send test email now* |
 | Find anything | Press **/** or tap **Search** |
+| See every detail of one log | Tap **View** on the log (person's whereabouts log, search results, or Admin → Log activity) |
 
 **Positions:** the form suggests PSDS, School Head, AO II and PDO II. Type any other position and it is offered next time. In the Schools view the School Head is shown first. The PSDS takes that place for the District Office. AO and PDO follow below.
 
@@ -215,7 +219,7 @@ EOF
 Editing the `cid-api` meta tag, styles or text outside the script does not need this.
 
 ### Making sure everyone gets the new version
-Raise the cache name in `sw.js`, for example `lnd-waypoint-v4` → `lnd-waypoint-v5`, whenever you upload new files. Installed copies then update on their next visit.
+Raise the cache name in `sw.js`, for example `lnd-waypoint-v5` → `lnd-waypoint-v6`, whenever you upload new files. Installed copies then update on their next visit.
 
 ---
 
